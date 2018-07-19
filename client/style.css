@@ -1,3 +1,24 @@
+[v-cloak]{
+	display:none;
+}
+
+/* Claim Componenet */
+.cardForm{
+	padding: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#phone{
+	height: 528px;
+	width: 588.776px;
+}
+
+.bgGrad{
+	background: linear-gradient(to bottom, #ffffff, #dcdcdc);
+}
+
+/* Main Component */
 .footerMain{
 	background-color: #22353e;
 }

@@ -29,9 +29,14 @@ const updateWinery = winery => {
     .catch(e => console.log(e))
 }
 
-
+const loadFilters = () =>
+    fetch('/filter')
+    .then(res => {
+        return res.json()
+    })
 
 export default {
+    loadFilters,
     getWineries,
     addWinery,
     updateWinery
