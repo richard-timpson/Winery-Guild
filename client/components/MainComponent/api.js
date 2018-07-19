@@ -30,14 +30,20 @@ const updateWinery = winery => {
 }
 
 const loadFilters = () =>
-    fetch('/filter')
-    .then(res => {
-        return res.json()
+        fetch('/filter')
+            .then(res => {
+                return res.json()
     })
+const loadCounty = (val) =>
+    fetch(`/filter/?state=${val}`)
+        .then(res => {
+            return res.json()
+        })
 
 export default {
     loadFilters,
     getWineries,
     addWinery,
-    updateWinery
+    updateWinery,
+    loadCounty
 }

@@ -8,7 +8,9 @@ var app = new Vue({
 		premium: null,
 		claimed: null,
 		unclaimed: null,
-		userFilters: [],
+		query: '',
+		userCounty: '',
+		userCity: '',
 		filterState: [],
 		filterCounty: [],
 		filterCity: [],
@@ -24,7 +26,14 @@ var app = new Vue({
 			'fab fa-instagram'
 		],
 	},
-
+	watch: {
+		query(val){
+			this.filterCounty = []
+			console.log(val)
+			api.loadCounty(val)
+				.then(counties => this.filterCounty = counties)
+		},
+	},
 	methods: {
 		
 		//get wineries list
