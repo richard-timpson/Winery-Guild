@@ -34,9 +34,15 @@ const loadFilters = () =>
     .then(res => {
         return res.json()
     })
+const loadCounty = (val) =>
+    fetch(`/filter/?state=${val}`)
+        .then(res => {
+            return res.json()
+        })
 
 export default {
     loadFilters,
+    loadCounty,
     getWineries,
     addWinery,
     updateWinery

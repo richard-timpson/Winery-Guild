@@ -16,19 +16,17 @@ const template = `
                             Winery Guild
                         </v-toolbar-title>
                         
-                            <v-menu :nudge-bottom="14" light :min-width="176" :max-height="300" :close-on-content-click="false" offset-y>
+                            <v-menu :open-on-hover="true" :nudge-bottom="14" light :min-width="176" :max-height="300" :close-on-content-click="false" offset-y>
                                 
                                 <v-btn slot="activator">Filter</v-btn>
                                 
-                                <v-list class="menuFilter">
-                                    <v-list-tile v-for="item in filterState">
-                                        <v-container class="contFilter">
-                                            <v-list-tile-title>
-                                                <v-checkbox :v-model="userFilters" :value="item" :label="item"></v-checkbox>	
-                                            </v-list-tile-title>
-                                        </v-container>
-                                    </v-list-tile>
-                                </v-list>
+                                                <v-list class="menuFilter">
+                                                    <v-radio-group v-model="query">
+                                                        <v-list-tile v-for="item in filterState" :key="item">
+                                                                <v-radio v-bind:value="item" :label="item"></v-radio>
+                                                        </v-list-tile>
+                                                    </v-radio-group>
+                                                </v-list>
                                 
                             </v-menu>
                         
