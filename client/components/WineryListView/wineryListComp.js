@@ -9,6 +9,9 @@ const wineryListComponent = Vue.component('winery-list', {
 			premium: null,
 			claimed: null,
 			unclaimed: null,
+			query: '',
+			userCounty: '',
+			userCity: '',
 			userFilters: [], 
 			filterState: [],
 			filterCounty: [],
@@ -26,6 +29,14 @@ const wineryListComponent = Vue.component('winery-list', {
 			],
 		}
 		
+	},
+	watch: {
+		query(val){
+			this.filterCounty = []
+			console.log(val)
+			api.loadCounty(val)
+				.then(counties => this.filterCounty = counties)
+		},
 	},
 	methods: {
 		//get wineries list
