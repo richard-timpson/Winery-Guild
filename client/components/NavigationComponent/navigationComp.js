@@ -8,7 +8,11 @@ const navigationComponent = Vue.component('winery-navigation', {
             userCounty: '',
             userCity: '',
             userFilters: [],
-            query: '',
+            query: {
+                state: '',
+                county: '',
+                city: '',
+            },
             filterState: [],
             filterCounty: [],
             filterCity: [],
@@ -16,29 +20,11 @@ const navigationComponent = Vue.component('winery-navigation', {
         }
     },
     watch: {
-        userState(val){
-            this.filterCounty = []
-            console.log(val)
-            api.loadCounty(val)
+        query(){
+            // console.log(val)
+            api.loadFilters()
                 .then(counties => this.filterCounty = counties)
         },
-        userCounty(val2){
-            this.filterCity= []
-            api.loadCounty(val2)
-                .then(cities => this.filterCity = cities)
-        },
-        filterCounty(){
-            if(this.filterCounty.length){
-                var actBtn = document.querySelector("#activeBtn")
-                actBtn.click() 
-            }
-        },
-        filterCity(){
-            if(this.filterCity.length){
-                var actBtn = document.querySelector("#activeBtn2")
-                actBtn.click()  
-            }
-        }
     },
     methods: {
         getFilters: function () {
