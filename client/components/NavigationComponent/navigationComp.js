@@ -1,5 +1,5 @@
-import template from './template'
-import api from '../../helpers/api.js'
+import template from './template.js'
+import api from '../../../helpers/api.js'
 const navigationComponent = Vue.component('winery-navigation', {
     template,
     data: function () {
