@@ -11,7 +11,7 @@ const template = `
                         Winery Guild
                     </v-toolbar-title>
                     
-                    <v-dialog v-model="dialog" scrollable max-width="500px">                            
+                    <v-dialog scrollable max-width="500px">                            
                         <v-btn slot="activator">Filter</v-btn>
                         <v-card>
                             <v-card-title><p class="text-xs-center">Set Filters</p></v-card-title>
