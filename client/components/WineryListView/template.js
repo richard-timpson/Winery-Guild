@@ -16,41 +16,16 @@ const template = `
                             Winery Guild
                         </v-toolbar-title>
                         
-                            <v-menu :nudge-bottom="14" light :min-width="176" :max-height="300" :close-on-content-click="false" offset-y>
-                                
-                                <v-btn slot="activator">Filter</v-btn>
-                                
-                                <v-list class="menuFilter">
-                                    <v-radio-group activator v-model="userState">
-                                        <v-list-tile v-for="item in filterState" :key="item">
-                                            <v-radio class="stateRadios" v-bind:value="item" :label="item"></v-radio>
-                                        </v-list-tile>
-                                    </v-radio-group>
-                                </v-list>
-                                
-                            </v-menu>
-                            
-                            <v-menu light min-with="176" :max-height="300" :close-on-content-click="false" :max-height="300" :nudge-top="26" :nudge-right="90" offset-x>
-                                <v-btn id="activeBtn" slot="activator" style="display: none;"/>
-                                <v-list class="menuFilter">
-                                    <v-radio-group v-model="userCounty">
-                                        <v-list-tile v-for="item in filterCounty" :key="item">
-                                            <v-radio class="countyRadios" v-bind:value="item" :label="item"></v-radio>
-                                        </v-list-tile>
-                                    </v-radio-group>
-                                </v-list>
-                            </v-menu>
-
-                            <v-menu light min-with="176" :max-height="300" :close-on-content-click="false" :max-height="300" :nudge-top="26" :nudge-right="90" offset-x>
-                                <v-btn id="activeBtn2" slot="activator" style="display: none;"/>
-                                <v-list class="menuFilter">
-                                    <v-radio-group v-model="userCounty">
-                                        <v-list-tile v-for="item in filterCounty" :key="item">
-                                            <v-radio v-bind:value="item" :label="item"></v-radio>
-                                        </v-list-tile>
-                                    </v-radio-group>
-                                </v-list>
-                            </v-menu>
+                        <div class="pure-menu pure-menu-horizontal">
+                            <ul class="pure-menu-list">
+                                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                                    <v-btn id="menuLink1" class="pure-menu-link">Filter</v-btn>
+                                    <ul class="pure-menu-children">
+                                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
                         <v-spacer></v-spacer>
                         
