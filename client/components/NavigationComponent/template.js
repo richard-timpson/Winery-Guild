@@ -20,8 +20,8 @@ const template = `
                     <v-layout wrap>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query.state">
-                                    <v-radio v-for="item in filterState" name="state" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userState">
+                                    <v-radio v-for="item in filterState" name="query" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>

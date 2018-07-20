@@ -15,7 +15,6 @@ module.exports = {
     },
     getFilter: (req, res, next) => {
         const query = req.query
-        
         console.log(query)
         const queryLength = Object.keys(query).length
         var filter = ''
