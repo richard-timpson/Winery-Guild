@@ -77,14 +77,11 @@ const template = `
                             <v-avatar id="wineGlass" size="48px">
                                 <img src="https://d1qmdf3vop2l07.cloudfront.net/white-iris.cloudvent.net/compressed/edce7f6eeee3062a0077fc33d57d65d3.svg" alt="avatar">
                             </v-avatar>
-
-
                             <v-card-text class="title white--text font-weight-light">WINERY GUILD</v-card-text>
                             <v-divider></v-divider>
                             <v-card-text class="white--text">&copy;Some Company Co. 2018</v-card-text>
                         </v-card>
                     </v-footer>
-
                 </v-flex>
             </v-layout>
         </v-container>
