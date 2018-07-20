@@ -2,7 +2,7 @@ const Winery = require('../models/winery')
 
 module.exports = {
     getWineries: (req, res, next) => {
-
+        console.log(req.query)
         Winery.find(req.query)
         .then(wineries => {
             return res.status(200).json(wineries)

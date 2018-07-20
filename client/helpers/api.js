@@ -1,8 +1,14 @@
-const getWineries = () => 
-    fetch('/wineries') //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
+import {stringify} from '../node_modules/query-string/index.js'
+
+const getWineries = () => {
+    const status = ['Featured', 'Premium', 'Claimed']
+    const url = `/wineries?${stringify({ status })}`
+    console.log(url)
+    return fetch(url) //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
     .then(res => {
         return res.json()
     })
+}
 const addWinery = winery =>
     //calling an http request on the home directory to add a winery based on the vue instance data on the form.
     fetch('/wineries', {
