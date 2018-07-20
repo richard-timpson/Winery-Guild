@@ -1,5 +1,5 @@
 const template = `
-<v-container fluid justify-center id="footerCont">
+
         <v-layout align-end row>
             <v-flex xs12 align-center>
                 <v-footer dark height="auto">
@@ -29,7 +29,7 @@ const template = `
 
             </v-flex>
         </v-layout>
-</v-container>
+
 `
 
 export default template
