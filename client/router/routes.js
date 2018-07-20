@@ -6,7 +6,8 @@ import claimedWineryView from '../components/ClaimedWineryView/claimedWineryComp
 import wineryNavigation from '../components//NavigationComponent/navigationComp.js'
 import footerComponent from '../components/FooterComponent/footerComp.js'
 
-const routes = [{
+const routes = [
+  {
     path: '/wineries',
     component: wineryListView
   },
@@ -26,6 +27,10 @@ const routes = [{
       path: '/winery',
       component: claimedWineryView
   },
+  {
+    path:'/',
+    component:wineryListView
+  }
 ]
 
 export default routes

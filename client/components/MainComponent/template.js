@@ -1,7 +1,7 @@
 const template = `
 <v-app>
     <winery-navigation></winery-navigation>
-    <winery-list></winery-list>
+    <router-view></router-view>
     <winery-footer></winery-footer>
 </v-app>
 `
