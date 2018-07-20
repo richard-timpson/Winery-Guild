@@ -9,15 +9,8 @@ const wineryListComponent = Vue.component('winery-list', {
 			premium: null,
 			claimed: null,
 			unclaimed: null,
-			userState: '',
-			userCounty: '',
-			userCity: '',
-			userFilters: [], 
-			filterState: [],
-			filterCounty: [],
-			filterCity: [],
-			filterList: [],
-
+			 
+			
 			icons: [
 				'fab fa-facebook',
 				'fab fa-twitter',
@@ -94,8 +87,6 @@ const wineryListComponent = Vue.component('winery-list', {
 
 	beforeMount(){
 		this.loadWineries()
-		this.getFilters()
-
 	}
 })
 

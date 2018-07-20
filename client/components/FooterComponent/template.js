@@ -1,6 +1,6 @@
 const template = `
-<v-container fluid id="footerCont">
-        <v-layout align-end fill-height row justify-center>
+<v-container fluid justify-center id="footerCont">
+        <v-layout align-end row>
             <v-flex xs12>
                 <v-footer dark height="auto">
                     <v-card flat tile class="flex">
