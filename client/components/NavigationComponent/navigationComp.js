@@ -19,25 +19,39 @@ const navigationComponent = Vue.component('winery-navigation', {
             filterList: [],
         }
     },
+    created() {
+        const query = {}
+        api.loadFilters(query)
+            .then(states => this.filterState = states)
+        console.log(this.filterState)
+    },
     watch: {
-        query(){
-            // console.log(val)
-            api.loadFilters()
+        userState: function (val){
+            console.log(val)
+            this.query.state = val
+            api.loadFilters(this.query)
                 .then(counties => this.filterCounty = counties)
         },
+        userCounty: function (val) {
+            this.query.county = val
+            api.loadFilters(this.query)
+                .then(cities => this.filterCity = cities)
+        }
     },
     methods: {
-        getFilters: function () {
+        filterCounties: function () {
             api.loadFilters()
-                .then(filters => this.filterState = filters)
+                .then(filters => this.filtercounty = filters)
         },
-        loadCities: function(){
+        filterCities: function () {
             api.loadFilters()
+                .then(filters => this.filterCity = filters)
         },
     },
 
     beforeMount(){
-        this.getFilters()
+        console.log('running initial filter load')
+        const query = {}
     }
     
 })
