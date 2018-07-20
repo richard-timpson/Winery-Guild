@@ -3,6 +3,7 @@ import wineryListView from '../components/WineryListView/wineryListComp.js'
 // import unclaimedWineryView from '../components/UnclaimedWineryView/unclaimedWineryComp.js'
 import claimView from '../components/ClaimView/claimComp.js'
 import claimedWineryView from '../components/ClaimedWineryView/claimedWineryComp.js'
+import wineryNavigation from '../components//NavigationComponent/navigationComp.js'
 
 const routes = [{
     path: '/wineries',
