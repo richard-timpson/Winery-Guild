@@ -27,15 +27,15 @@ const template = `
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterState" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userCounty" v-if="userState">
+                                    <v-radio v-for="item in filterCounty" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterCity" name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="query" v-if="userCounty">
+                                    <v-radio v-for="item in filterCity"  name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>

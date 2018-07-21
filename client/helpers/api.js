@@ -37,7 +37,7 @@ const updateWinery = winery => {
 
 const loadFilters = (query) => {
     console.log(query)
-    const url = `/filter?${stringify({query})}`
+    const url = `/filter?${stringify(query)}`
     console.log(url)
     return fetch(url)
     .then(res => {

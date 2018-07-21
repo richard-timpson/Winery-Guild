@@ -9,9 +9,9 @@ const navigationComponent = Vue.component('winery-navigation', {
             userCity: '',
             userFilters: [],
             query: {
-                state: '',
-                county: '',
-                city: '',
+                state: null,
+                county: null,
+                city: null,
             },
             filterState: [],
             filterCounty: [],
@@ -28,13 +28,21 @@ const navigationComponent = Vue.component('winery-navigation', {
     watch: {
         userState: function (val){
             console.log(val)
-            this.query.state = val
-            api.loadFilters(this.query)
+            const query = {
+                state: val
+            }
+            this.userCounty = null
+            api.loadFilters(query)
                 .then(counties => this.filterCounty = counties)
         },
         userCounty: function (val) {
-            this.query.county = val
-            api.loadFilters(this.query)
+            console.log(val)
+            const query = {
+                state: this.userState,
+                county: val
+            }
+            this.userCity = null
+            api.loadFilters(query)
                 .then(cities => this.filterCity = cities)
         }
     },
