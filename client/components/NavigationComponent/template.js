@@ -20,22 +20,22 @@ const template = `
                     <v-layout wrap>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query.state">
-                                    <v-radio v-for="item in filterState" name="state" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userState">
+                                    <v-radio v-for="item in filterState" name="query" :key="item" v-bind:value="item" :label="item" ></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterState" name="county" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userCounty" v-if="userState">
+                                    <v-radio v-for="item in filterCounty" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterState" name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="query" v-if="userCounty">
+                                    <v-radio v-for="item in filterCity"  name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
@@ -44,7 +44,7 @@ const template = `
                 
                 
 
-           
+            
 
             
         </v-card>
@@ -60,8 +60,8 @@ const template = `
     <router-link to ='/upgrade'>
         <v-btn>Upgrade</v-btn>
     </router-link>
-
-
+    
+    
 </v-toolbar>
 `
 
