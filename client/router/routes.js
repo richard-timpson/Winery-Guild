@@ -24,6 +24,10 @@ const routes = [
     component: claimView
   },
   {
+    path: '/wineryView',
+    component: claimedWineryView
+  },
+  {
       path: '/winery',
       component: claimedWineryView
   },

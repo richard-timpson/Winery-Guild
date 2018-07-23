@@ -13,6 +13,7 @@ module.exports = {
         })
 
     },
+
     getFilter: (req, res, next) => {
         const query = req.query
         console.log(query)
