@@ -27,6 +27,7 @@ module.exports = {
             next()
         })
     },
+    
     editWinery: (req,res,next) => {
         Winery.findById(req.params.id, (err, winery) => {
             if (err) {

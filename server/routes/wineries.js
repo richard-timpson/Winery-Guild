@@ -28,12 +28,11 @@ const userController = require('../controllers/user')
 const adminController = require('../controllers/admin')
 
 //userView
-router.get('/', userController.getWineries) 
+router.get('/', userController.getWineries)
 router.put('/', userController.editAllWineries)
 
 //adminView
 router.post('/', adminController.addWinery) 
 router.put('/:id', upload.any(), adminController.editWinery)
-
 
 module.exports = router
