@@ -1,8 +1,27 @@
 import {stringify} from '../node_modules/query-string/index.js'
 
-const getWineries = () => {
-    const status = ['Featured', 'Premium', 'Claimed']
-    const url = `/wineries?${stringify({ status })}`
+const getWineries = (filter) => {
+    // if (!filter.unclaimed) {
+    //     const searchFilter = {
+    //         state: filter.state,
+    //         county: filter.county,
+    //         city: filter.city,
+    //         status:['Featured', 'Premium', 'Claimed']
+    //     }
+    //     const url = `/wineries${stringify(searchFilter)}`
+    //     console.log(url)
+    // }
+    // else {
+    //     const searchFilter = {
+    //         state : filter.state,
+    //         county : filter.county,
+    //         city : filter.city,
+    //     }
+    //     const url = `/wineries${stringify(searchFilter)}`
+    //     console.log(url)
+    // }
+    console.log(filter)
+    const url = `/wineries?${stringify(filter)}`
     console.log(url)
     return fetch(url) //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
     .then(res => {
@@ -36,9 +55,7 @@ const updateWinery = winery => {
 }
 
 const loadFilters = (query) => {
-    console.log(query)
     const url = `/filter?${stringify(query)}`
-    console.log(url)
     return fetch(url)
     .then(res => {
         return res.json()

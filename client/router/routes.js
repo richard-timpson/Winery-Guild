@@ -8,17 +8,29 @@ import footerComponent from '../components/FooterComponent/footerComp.js'
 
 const routes = [
   {
-    path: '/wineries',
-    component: wineryListView
+    path:'/wineries',
+    component: wineryListView,
+    name:'all'
   },
-  // {
-  //   path: '/upgrade',
-  //   component: upgradeView,
-  //   // props: {
-  //   //   default: true,
-  //   //   expenses: []
-  //   // }
-  // },
+  {
+    path: '/wineries/:state/',
+    component: wineryListView,
+    props: true,
+    name: 'state',
+  },
+  {
+    path: '/wineries/:state/:county',
+    component: wineryListView,
+    props: true,
+    name: 'county'
+  },
+  {
+    path: '/wineries/:state/:county/:city',
+    component: wineryListView,
+    props: true,
+    name: 'city'
+  },
+
   {
     path: '/claim',
     component: claimView
@@ -29,7 +41,8 @@ const routes = [
   },
   {
     path:'/',
-    component:wineryListView
+    redirect: '/wineries'
+
   }
 ]
 

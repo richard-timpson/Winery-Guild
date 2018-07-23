@@ -7,16 +7,10 @@ const navigationComponent = Vue.component('winery-navigation', {
             userState: '',
             userCounty: '',
             userCity: '',
-            userFilters: [],
-            query: {
-                state: null,
-                county: null,
-                city: null,
-            },
             filterState: [],
             filterCounty: [],
             filterCity: [],
-            filterList: [],
+            dialog: false,
         }
     },
     created() {
@@ -27,7 +21,6 @@ const navigationComponent = Vue.component('winery-navigation', {
     },
     watch: {
         userState: function (val){
-            console.log(val)
             const query = {
                 state: val
             }
@@ -36,7 +29,6 @@ const navigationComponent = Vue.component('winery-navigation', {
                 .then(counties => this.filterCounty = counties)
         },
         userCounty: function (val) {
-            console.log(val)
             const query = {
                 state: this.userState,
                 county: val
@@ -55,13 +47,48 @@ const navigationComponent = Vue.component('winery-navigation', {
             api.loadFilters()
                 .then(filters => this.filterCity = filters)
         },
+        searchWineries: function () {
+            if (!this.userState) {
+                this.$router.push({
+                    name: 'all',
+                    })
+            }
+            if (this.userState) {
+                this.$router.push({
+                    name: 'state',
+                     params: {
+                         state: this.userState
+                        }
+                    })
+            }
+            if (this.userCounty) {
+                this.$router.push({
+                    name: 'county', 
+                    params: {
+                        state: this.userState,
+                        county: this.userCounty
+                    }
+                })
+            }
+            if (this.userCity) {
+                this.$router.push({
+                    name: 'city', 
+                    params: {
+                        state: this.userState,
+                        county: this.userCounty,
+                        city: this.userCity,
+                    }
+                })
+            }
+            console.log(this.dialog)
+        },
+        clear: function () {
+            this.userState = null
+            this.userCounty = null
+            this.userCity = null
+        }
     },
 
-    beforeMount(){
-        console.log('running initial filter load')
-        const query = {}
-    }
-    
 })
 
 export default navigationComponent
