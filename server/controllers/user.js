@@ -22,6 +22,7 @@ module.exports = {
         })
 
     },
+
     getFilter: (req, res, next) => {
         const query = req.query
         

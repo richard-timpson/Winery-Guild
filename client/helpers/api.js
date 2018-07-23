@@ -28,6 +28,7 @@ const getWineries = (filter) => {
         return res.json()
     })
 }
+
 const addWinery = winery =>
     //calling an http request on the home directory to add a winery based on the vue instance data on the form.
     fetch('/wineries', {

@@ -15,6 +15,8 @@ const wineryListComponent = Vue.component('winery-list', {
 			premium: null,
 			claimed: null,
 			unclaimed: null,
+			viewingList: [],
+			selection: '', 
 			filter: {
 				state: null,
 				city: null,
@@ -114,6 +116,9 @@ const wineryListComponent = Vue.component('winery-list', {
 				actBtn.click()	
 			}
 		},
+		selection(){
+			console.log("hi")
+		}
 
 	},
 	methods: {
@@ -152,14 +157,19 @@ const wineryListComponent = Vue.component('winery-list', {
 		sortWineries: function(){
 			const premiums = this.wineries.filter(winery => winery.status == 'Premium')
 			this.premium = premiums
+			
 			const featureds = this.wineries.filter(winery => winery.status == 'Featured')
 			this.featured = featureds
+			
 			const claimeds = this.wineries.filter(winery => winery.status == 'Claimed')
 			this.claimed = claimeds
+
 			const unclaimeds = this.wineries.filter(winery => !winery.status)
 			this.unclaimed = unclaimeds
 			console.log(this.unclaimed.length)
 
+			this.unclaimed = unclaimeds
+			
 		},
 
 		
