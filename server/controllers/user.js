@@ -2,8 +2,17 @@ const Winery = require('../models/winery')
 
 module.exports = {
     getWineries: (req, res, next) => {
-        console.log(req.query)
-        Winery.find(req.query)
+        let query = {}
+        if (!req.query.state) {
+            query = {
+                status: ['Featured', 'Premium', 'Claimed']
+            }
+        }
+        else {
+            query = req.query
+        }
+        console.log(query)
+        Winery.find(query)
         .then(wineries => {
             return res.status(200).json(wineries)
         })
@@ -15,7 +24,7 @@ module.exports = {
     },
     getFilter: (req, res, next) => {
         const query = req.query
-        console.log(query)
+        
         const queryLength = Object.keys(query).length
         var filter = ''
         if (queryLength === 0) {
@@ -29,7 +38,6 @@ module.exports = {
         }
         Winery.find(query).distinct(filter)
         .then(filter => {
-            console.log(filter)
             filter.sort()
             return res.status(200).json(filter)
         })

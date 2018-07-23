@@ -11,9 +11,9 @@ const template = `
         Winery Guild
     </v-toolbar-title>
 
-    <v-dialog width="500px">                            
+    <v-dialog width="700px" v-model="dialog">                            
         <v-btn slot="activator">Filter</v-btn>
-        <v-card>
+        <v-card width ="700px" height="600px">
                 <v-card-title><p class="text-xs-center">Set Filters</p></v-card-title>
                 <v-divider></v-divider>
                 <v-container grid-list-md>
@@ -36,19 +36,17 @@ const template = `
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query" v-if="userCounty">
+                                <v-radio-group v-model="userCity" v-if="userCounty">
                                     <v-radio v-for="item in filterCity"  name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                     </v-layout>
                 </v-container>
-                
-                
-
-            
-
-            
+                <v-card-title>
+                    <v-btn @click ='searchWineries' @click.native="dialog = false">Search</v-btn>
+                    <v-btn @click = 'clear'>Clear</v-btn>
+                </v-card-title>
         </v-card>
     </v-dialog>
     
