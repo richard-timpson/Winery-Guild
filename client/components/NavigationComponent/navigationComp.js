@@ -20,12 +20,14 @@ const navigationComponent = Vue.component('winery-navigation', {
         console.log(this.filterState)
     },
     watch: {
+
         userState: function (val){
             const query = {
                 state: val
             }
             this.userCounty = null
             api.loadFilters(query)
+
                 .then(counties => this.filterCounty = counties)
         },
         userCounty: function (val) {
