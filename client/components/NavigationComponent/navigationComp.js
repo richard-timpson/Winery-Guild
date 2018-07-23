@@ -8,11 +8,13 @@ const navigationComponent = Vue.component('winery-navigation', {
             userCounty: '',
             userCity: '',
             userFilters: [],
+
             query: {
                 state: null,
                 county: null,
                 city: null,
             },
+
             filterState: [],
             filterCounty: [],
             filterCity: [],
@@ -26,6 +28,7 @@ const navigationComponent = Vue.component('winery-navigation', {
         console.log(this.filterState)
     },
     watch: {
+
         userState: function (val){
             console.log(val)
             const query = {
@@ -33,6 +36,7 @@ const navigationComponent = Vue.component('winery-navigation', {
             }
             this.userCounty = null
             api.loadFilters(query)
+
                 .then(counties => this.filterCounty = counties)
         },
         userCounty: function (val) {
