@@ -10,42 +10,40 @@
         Winery Guild
     </v-toolbar-title>
 
-    <v-dialog width="500px">                            
+    <v-dialog width="600px">                            
         <v-btn slot="activator">Filter</v-btn>
-        <v-card>
+        <v-card width ="600px" height="600px">
                 <v-card-title><p class="text-xs-center">Set Filters</p></v-card-title>
                 <v-divider></v-divider>
                 <v-container grid-list-md>
                     <v-layout wrap>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group >
-                                    <v-radio v-for="item in filterState" @click="filterCounty" name="state" :key="item" v-bind:value="item" :label="item" v-model="query.state"></v-radio>
+                                <v-radio-group v-model="userState">
+                                    <v-radio v-for="item in filterState" name="query" :key="item" v-bind:value="item" :label="item" ></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterCounty" @click="filterCity"name="county" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userCounty" v-if="userState">
+                                    <v-radio v-for="item in filterCounty" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                         <v-flex md4>
                             <v-card-text style="height: 400px; overflow: auto;">
-                                <v-radio-group v-model="query">
-                                    <v-radio v-for="item in filterCity" name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
+                                <v-radio-group v-model="userCity" v-if="userCounty">
+                                    <v-radio v-for="item in filterCity"  name="city" :key="item" v-bind:value="item" :label="item"></v-radio>
                                 </v-radio-group>
                             </v-card-text>
                         </v-flex>
                     </v-layout>
                 </v-container>
-                
-                
-
-            
-
-            
+                <v-card-title>
+                    <v-btn>Search</v-btn>
+                    <v-btn>Clear</v-btn>
+                </v-card-title>
         </v-card>
     </v-dialog>
     
