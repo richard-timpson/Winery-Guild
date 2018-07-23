@@ -8,7 +8,7 @@ const template = `
         </v-layout>
         <v-layout row justify-center>
             <v-flex xs12>
-                <p class="display-1 font-weight-thin" v-if="featured != null">Featured</p>
+                <p class="display-1 font-weight-thin" v-if="featured.length > 0">Featured</p>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>
@@ -23,7 +23,7 @@ const template = `
         </v-layout>
         <v-layout row justify-center>
             <v-flex xs12>
-                <p class="display-1 font-weight-thin" v-if="premium != null">Premium</p>
+                <p class="display-1 font-weight-thin" v-if="premium.length > 0">Premium</p>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>
@@ -37,7 +37,7 @@ const template = `
         </v-layout>
         <v-layout row justify-center>
             <v-flex xs12>
-                <p class="display-1 text-xs-center font-weight-thin" v-if="claimed != null">Claimed</p>
+                <p class="display-1 text-xs-center font-weight-thin" v-if="claimed.length > 0">Claimed</p>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>
@@ -51,7 +51,7 @@ const template = `
         </v-layout>
         <v-layout row justify-center>
             <v-flex xs12>
-                <p class="display-1 font-weight-thin" v-if="unclaimed != null">Unclaimed</p>
+                <p class="display-1 font-weight-thin" v-if="unclaimed.length > 0">Unclaimed</p>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>

@@ -158,6 +158,7 @@ const wineryListComponent = Vue.component('winery-list', {
 			this.claimed = claimeds
 			const unclaimeds = this.wineries.filter(winery => !winery.status)
 			this.unclaimed = unclaimeds
+			console.log(this.unclaimed.length)
 
 		},
 
