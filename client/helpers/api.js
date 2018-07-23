@@ -35,12 +35,15 @@ const updateWinery = winery => {
     .catch(e => console.log(e))
 }
 
-const loadFilters = () =>
-    fetch('/filter')
+const loadFilters = (query) => {
+    console.log(query)
+    const url = `/filter?${stringify(query)}`
+    console.log(url)
+    return fetch(url)
     .then(res => {
         return res.json()
     })
-
+}
         
 
 export default {
