@@ -4,12 +4,15 @@ const claimedWineryView = Vue.component('claimed-winery-view', {
 	template,
 	data: function (){
 		return {
-		wineryNameU: 'GRANITE LION CELLARS',
-		wineriesView: null,
-		wineryView: null,
-		endLnk: '',
-		bgLnk: '',
-		src: '',
+			wineryNameU: 'GRANITE LION CELLARS',
+			wineryName: '',
+			wineriesView: null,
+			wineryView: null,
+			endLnk: '',
+			bgLnk: '',
+			src: '',
+			email: ``,
+			website: '',
 		}
 	},
 	watch: {
@@ -32,6 +35,9 @@ const claimedWineryView = Vue.component('claimed-winery-view', {
             this.endLnk = this.wineryView[0].background
             this.bgLnk = 'localhost:3000' + this.endLnk
             this.src = this.bgLnk
+            this.email = `mailto: ${this.wineryView[0].email}`
+            this.website = this.wineryView[0].websiteurl
+            // this.wineryName = this.wineryView[0].wineryname
         },
 	},
 	beforeMount(){
