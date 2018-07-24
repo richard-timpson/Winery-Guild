@@ -2,12 +2,6 @@ import template from './template.js'
 import api from '../../helpers/api.js'
 const wineryListComponent = Vue.component('winery-list', {
 	template,
-	props: {
-		state: String,
-		county: String,
-		city: String,
-		unclaimedBoolean: Boolean,
-	},
 	data: function() {
 		return {
 			wineries: null,
@@ -15,25 +9,13 @@ const wineryListComponent = Vue.component('winery-list', {
 			premium: null,
 			claimed: null,
 			unclaimed: null,
-			viewingList: [],
-			selection: '', 
 			filter: {
 				state: null,
 				city: null,
 				county: null,
 				// unclaimed: false,
 			},
-			icons: [
-				'fab fa-facebook',
-				'fab fa-twitter',
-				'fab fa-pinterest',
-				'fab fa-linkedin',
-				'fab fa-youtube',
-				'fab fa-snapchat',
-				'fab fa-instagram'
-			],
 		}
-		
 	},
 	created () {
 		this.filter.state = this.$route.params.state
@@ -41,22 +23,9 @@ const wineryListComponent = Vue.component('winery-list', {
 		this.filter.city = this.$route.params.city
 		// this.filter.unclaimed = this.$props.unclaimedBoolean
 		this.loadWineries(this.filter)
-		console.log(this.$props)
 	},
-	// beforeRouteUpdate(to, from, next) {
-	// 	console.log(to.params)
-	// 	if (from.params.state) {
-	// 		const filter = {
-	// 			state: from.params.state
-	// 		}
-	// 	console.log(from.params.state)
-	// 	this.loadWineries(filter)
-	// 	}
-	// 	console.log(from)
-	// },
 	watch: {
 		'$route' (to, from) {
-			console.log(to)
 			if ( !to.params.state && !to.params.county && !to.params.city) {
 				const filter = {}
 				this.clear()
@@ -66,10 +35,8 @@ const wineryListComponent = Vue.component('winery-list', {
 				const filter = {
 					state: to.params.state
 				}
-				console.log(filter)
 				this.clear()
 				this.loadWineries(filter)
-				// this.sortWineries()
 			}
 			if (to.params.state && to.params.county && !to.params.city) {
 				const filter = {
@@ -78,7 +45,6 @@ const wineryListComponent = Vue.component('winery-list', {
 				}
 				this.clear()
 				this.loadWineries(filter)
-				// this.sortWineries()
 			}
 			if (to.params.state && to.params.county && to.params.city) {
 				const filter = {
@@ -88,10 +54,7 @@ const wineryListComponent = Vue.component('winery-list', {
 				}
 				this.clear()
 				this.loadWineries(filter)
-				// this.sortWineries()
 			}
-			console.log(to)
-			console.log(from)
 		},
 		userState(val){
 			this.filterCounty = []
@@ -104,22 +67,6 @@ const wineryListComponent = Vue.component('winery-list', {
 			api.loadCounty(val2)
 				.then(cities => this.filterCity = cities)
 		},
-		filterCounty(){
-			if(this.filterCounty.length){
-				var actBtn = document.querySelector("#activeBtn")
-				actBtn.click() 
-			}
-		},
-		filterCity(){
-			if(this.filterCity.length){
-				var actBtn = document.querySelector("#activeBtn2")
-				actBtn.click()	
-			}
-		},
-		selection(){
-			console.log("hi")
-		}
-
 	},
 	methods: {
 		//get wineries list
@@ -131,23 +78,6 @@ const wineryListComponent = Vue.component('winery-list', {
 			api.loadFilters(filter)
 				.then(filters => this.filterState = filters)
 		},
-		loadCities: function(){
-			api.loadFilters()
-		},
-		// sortWineries: function(){
-		// 	const premiums = this.wineries.filter(winery => winery.status == 'Premium')
-		// 	this.premium = premiums
-
-		// 	const featureds = this.wineries.filter(winery => winery.status == 'Featured')
-		// 	this.featured = featureds
-
-		// 	const claimeds = this.wineries.filter(winery => winery.status == 'Claimed')
-		// 	this.claimed = claimeds
-
-		// 	const unclaimeds = this.wineries.filter(winery => !winery.status)
-		// 	this.unclaimed = unclaimeds
-
-		// },
 		clear: function () {
 			this.wineries = []
 		}
@@ -165,9 +95,6 @@ const wineryListComponent = Vue.component('winery-list', {
 			this.claimed = claimeds
 
 			const unclaimeds = this.wineries.filter(winery => !winery.status)
-			this.unclaimed = unclaimeds
-			console.log(this.unclaimed.length)
-
 			this.unclaimed = unclaimeds
 			
 		},

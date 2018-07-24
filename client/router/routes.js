@@ -36,12 +36,10 @@ const routes = [
     component: claimView
   },
   {
-    path: '/wineryView',
-    component: claimedWineryView
-  },
-  {
-      path: '/winery',
-      component: claimedWineryView
+      path: '/winery/:state/:county/:_id',
+      component: claimedWineryView,
+      props: true,
+      name: 'winery'
   },
   {
     path:'/',

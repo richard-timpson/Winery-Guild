@@ -7,12 +7,14 @@
         </v-layout>
         <v-layout row justify-center>
             <v-flex xs2 v-for="item in featured">
+                <router-link :to ="{name: 'winery', params: {winery: item, state: item.state, county: item.county, city: item.city}}">
                 <v-card :height="80">
                     <v-container fill-height align-center>
                         <v-card-media src="https://cdn.vuetifyjs.com/images/cards/foster.jpg" height="80px" contain></v-card-media>	
                         <v-card-text class="px-0">{{ item.wineryname }}</v-card-text>
                     </v-container>
                 </v-card>
+                </router-link>
             </v-flex>
         </v-layout>
         <v-layout row justify-center>
