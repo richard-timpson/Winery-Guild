@@ -19,15 +19,14 @@ const adminComp = Vue.component('admin-view', {
                 videourl: '',
                 websiteurl: '',
                 logo: '',
-                bgImg: '',
+                background: '',
                 phone: '',
                 email: '',
                 description: '',
-                wineryId: '',
-                logoLink: '',
-                backgroundLink: '',
+                _id: '',
             },
-            search: 'GRANITE LION CELLARS',
+            nameSearch: 'VINEYARD GRANT JAMES',
+            idSearch: '5b4d3169493a1b5f8394df0b',
             exists: false,
         }
     },
@@ -72,8 +71,12 @@ const adminComp = Vue.component('admin-view', {
         bgData(e){
             this.winery.bgImg = e.target.files[0]
         },
-        getWinery (name) {
+        getWineryByName (name) {
             api.getWineryByName(name)
+                .then(winery => this.winery = winery)
+        },
+        getWineryById (id) {
+            api.getWineryById(id)
                 .then(winery => this.winery = winery)
         },
         updateWinery () {
@@ -92,12 +95,12 @@ const adminComp = Vue.component('admin-view', {
                 status: this.winery.status,
                 videourl: this.winery.videourl,
                 websiteurl: this.winery.websiteurl,
-                bgImg: this.winery.bgImg,
+                background: this.winery.background,
                 logo: this.winery.logo,
                 phone: this.winery.phone,
                 email: this.winery.email,
                 description: this.winery.description,
-                _id: this.winery.wineryId
+                _id: this.winery._id
             }
             console.log(winery)
             api.updateWinery(winery)
