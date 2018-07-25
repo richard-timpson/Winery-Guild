@@ -1,33 +1,19 @@
 import {stringify} from '../node_modules/query-string/index.js'
 
 const getWineries = (filter) => {
-    // if (!filter.unclaimed) {
-    //     const searchFilter = {
-    //         state: filter.state,
-    //         county: filter.county,
-    //         city: filter.city,
-    //         status:['Featured', 'Premium', 'Claimed']
-    //     }
-    //     const url = `/wineries${stringify(searchFilter)}`
-    //     console.log(url)
-    // }
-    // else {
-    //     const searchFilter = {
-    //         state : filter.state,
-    //         county : filter.county,
-    //         city : filter.city,
-    //     }
-    //     const url = `/wineries${stringify(searchFilter)}`
-    //     console.log(url)
-    // }
     const url = `/wineries?${stringify(filter)}`
     return fetch(url) //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
     .then(res => {
         return res.json()
     })
 }
-const getWinery = (id) => {
+const getWineryById = (id) => {
     const url = `/wineries?_id=${id}`
+    return fetch(url)
+        .then( res => res.json())
+}
+const getWineryByName = (name) => {
+    const url = `/wineries?wineryname=${name}`
     console.log(url)
     return fetch(url)
         .then( res => res.json())
@@ -57,7 +43,6 @@ const updateWinery = winery => {
     .then(res => res.json())
     .catch(e => console.log(e))
 }
-
 const loadFilters = (query) => {
     const url = `/filter?${stringify(query)}`
     return fetch(url)
@@ -72,5 +57,6 @@ export default {
     getWineries,
     addWinery,
     updateWinery,
-    getWinery
+    getWineryById,
+    getWineryByName,
 }
