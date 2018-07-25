@@ -3,7 +3,7 @@ const Winery = require('../models/winery')
 module.exports = {
     getWineries: (req, res, next) => {
         let query = {}
-        if (!req.query.state) {
+        if (!req.query.state && !req.query._id) {
             query = {
                 status: ['Featured', 'Premium', 'Claimed']
             }
@@ -14,6 +14,7 @@ module.exports = {
         console.log(query)
         Winery.find(query)
         .then(wineries => {
+            console.log(wineries)
             return res.status(200).json(wineries)
         })
         .catch( e => {

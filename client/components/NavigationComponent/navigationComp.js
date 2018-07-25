@@ -17,7 +17,6 @@ const navigationComponent = Vue.component('winery-navigation', {
         const query = {}
         api.loadFilters(query)
             .then(states => this.filterState = states)
-        console.log(this.filterState)
     },
     watch: {
 

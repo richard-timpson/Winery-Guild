@@ -20,15 +20,18 @@ const getWineries = (filter) => {
     //     const url = `/wineries${stringify(searchFilter)}`
     //     console.log(url)
     // }
-    console.log(filter)
     const url = `/wineries?${stringify(filter)}`
-    console.log(url)
     return fetch(url) //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
     .then(res => {
         return res.json()
     })
 }
-
+const getWinery = (id) => {
+    const url = `/wineries?_id=${id}`
+    console.log(url)
+    return fetch(url)
+        .then( res => res.json())
+}
 const addWinery = winery =>
     //calling an http request on the home directory to add a winery based on the vue instance data on the form.
     fetch('/wineries', {
@@ -68,5 +71,6 @@ export default {
     loadFilters,
     getWineries,
     addWinery,
-    updateWinery
+    updateWinery,
+    getWinery
 }
