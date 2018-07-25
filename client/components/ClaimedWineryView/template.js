@@ -22,7 +22,9 @@ const template =
                             <v-card-text>{{ wineryView[0].phone }}</v-card-text>
                         </v-card>
                     </v-dialog>
-
+                </v-flex>
+                </v-flex>
+                
                     <a v-bind:href="website" target="_blank">
                         <v-btn slot="activator" round> Website </v-btn>
                     </a>    

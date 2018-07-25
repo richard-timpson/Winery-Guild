@@ -45,13 +45,6 @@ const app = new Vue({
             var upld2 = document.querySelector('#uploader2')
             upld2.click()
         },
-        //getting filter states
-        // getState(state){
-        //     api.getFilter(state)
-        //         .then()
-        // },
-
-        // getWineries
 
         addWinery () {
             const winery = {
