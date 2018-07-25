@@ -5,7 +5,6 @@ const template =
         <v-container fluid grid-list-md text-xs-center>
             <v-layout row wrap justify-center>
                 <v-flex xs12 display-1>
-                    {{ wineryNameU }}
                 </v-flex>
                 <v-flex xs12>
                     <v-parallax v-bind:src="src"></v-parallax>
@@ -19,7 +18,7 @@ const template =
                         <v-card>
                             <v-card-title><span>Call</span></v-card-title>
                             <v-divider />
-                            <v-card-text>{{ wineryView[0].phone }}</v-card-text>
+                            <v-card-text></v-card-text>
                         </v-card>
                     </v-dialog>
                 </v-flex>
