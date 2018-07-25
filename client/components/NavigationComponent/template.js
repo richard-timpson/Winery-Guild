@@ -56,9 +56,6 @@ const template = `
 
 
     <v-spacer></v-spacer>
-    <router-link to="/wineryView">
-        <v-btn>View</v-btn>
-    </router-link>
     <router-link to ='/claim'>
         <v-btn>Claim</v-btn>
     </router-link>
