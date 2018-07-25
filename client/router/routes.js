@@ -5,7 +5,7 @@ import claimView from '../components/ClaimView/claimComp.js'
 import claimedWineryView from '../components/ClaimedWineryView/claimedWineryComp.js'
 import wineryNavigation from '../components//NavigationComponent/navigationComp.js'
 import footerComponent from '../components/FooterComponent/footerComp.js'
-
+import adminView from '../components/AdminView/adminComp.js'
 const routes = [
   {
     path:'/wineries',
@@ -45,6 +45,10 @@ const routes = [
     path:'/',
     redirect: '/wineries'
 
+  },
+  {
+    path:'/admin',
+    component: adminView
   }
 ]
 
