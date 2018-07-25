@@ -3,7 +3,7 @@ const template = `
     <router-link to ='/'>
         <v-toolbar-side-icon>
             <v-avatar>
-                <img src="https://d1qmdf3vop2l07.cloudfront.net/white-iris.cloudvent.net/compressed/edce7f6eeee3062a0077fc33d57d65d3.svg" alt="avatar">
+                <img src="https://d1qmdf3vop2l07.cloudfront.net/white-iris.cloudvent.net/compressed/5dffa69173cc03a8b11d6801389135b4.svg" alt="avatar">
             </v-avatar>
         </v-toolbar-side-icon>
     </router-link>
