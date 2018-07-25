@@ -20,7 +20,6 @@ const claimedWineryView = Vue.component('claimed-winery-view', {
 			this.urlink = this.winery.websiteurl
 			this.mapLink = `https://www.google.com/maps/embed/v1/place?q=${this.winery.lat},${this.winery.lng}&key=AIzaSyDYRgFCVHTcMUmOi3gyyiTzpfDZCH_MAGU`
 		}
-		// <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=37.106377%2C%20-113.580351&key=AIzaSyDYRgFCVHTcMUmOi3gyyiTzpfDZCH_MAGU" allowfullscreen></iframe>
 	}
 })
 	
