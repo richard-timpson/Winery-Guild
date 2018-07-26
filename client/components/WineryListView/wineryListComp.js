@@ -72,7 +72,7 @@ const wineryListComponent = Vue.component('winery-list', {
 		//get wineries list
 		loadWineries: function(filter){ 
 			api.getWineries(filter)
-				.then(wineries => this.wineries = wineries).then(() => this.sortWineries)
+				.then(wineries => {this.wineries = wineries}).then(() => this.sortWineries)
 		},
 		getFilters: function(filter){
 			api.loadFilters(filter)
@@ -80,6 +80,10 @@ const wineryListComponent = Vue.component('winery-list', {
 		},
 		clear: function () {
 			this.wineries = []
+		},
+		getImgUrl: function (link) {
+			return fetch(`${link}`)
+				.then(image => image.blob())
 		}
 	},
 	computed:{

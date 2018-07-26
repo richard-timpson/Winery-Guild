@@ -34,12 +34,11 @@ module.exports = {
                 res.status(404).send()
                 return
             }
-            console.log(winery)
             const id = req.params.id
             winery.logo = `/${id}/logo.jpg`
             winery.background = `/${id}/background.jpg`
 
-            console.log(req.body)
+            console.log('logging req.body',req.body)
             console.log("logging the winery", winery)
             for (bodyKey in req.body) {
                 for (wineryKey in winery) {
@@ -49,7 +48,6 @@ module.exports = {
                 }
                 console.log(`${bodyKey}: ${req.body[bodyKey]}`)
             }
-            //random line
             winery.wineryname = req.body.wineryname
             winery.status = req.body.status
             winery.videourl = req.body.videourl
