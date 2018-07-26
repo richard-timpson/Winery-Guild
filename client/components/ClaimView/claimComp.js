@@ -16,12 +16,7 @@ const claimComponent = Vue.component('claim-compnent', {
 				],
 			phone: '',
 			wineryInf: '',
-			items1: [
-				{ title: 'Filter' },
-				{ title: 'Filter' },
-				{ title: 'Filter' },
-				{ title: 'Filter' }
-			],
+			
 			icons: [
 				'fab fa-facebook',
 				'fab fa-twitter',
