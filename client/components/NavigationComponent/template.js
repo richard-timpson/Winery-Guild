@@ -1,5 +1,6 @@
 const template = `
-<v-toolbar style="background-color: #cc3230">
+
+<v-toolbar style="background-color: #cc3230; z-index: 1000000001;">
     <router-link to ='/'>
         <v-toolbar-side-icon>
             <v-avatar>
@@ -54,9 +55,6 @@ const template = `
 
     <v-spacer></v-spacer>
 
-    <router-link to ='/claim'>
-        <v-btn>Claim</v-btn>
-    </router-link>
     <router-link to ='/upgrade'>
         <v-btn>Upgrade</v-btn>
     </router-link>
@@ -66,6 +64,7 @@ const template = `
     
     
 </v-toolbar>
+
 `
 
 export default template
