@@ -41,13 +41,13 @@ module.exports = {
             console.log('logging req.body',req.body)
             console.log("logging the winery", winery)
 
-            // winery.wineryname = req.body.wineryname
-            // winery.status = req.body.status
-            // winery.videourl = req.body.videourl
-            // winery.websiteurl = req.body.websiteurl
-            // winery.description = req.body.description
-            // winery.phone = req.body.phone
-            // winery.email = req.body.email
+            winery.wineryname = req.body.wineryname
+            winery.status = req.body.status
+            winery.videourl = req.body.videourl
+            winery.websiteurl = req.body.websiteurl
+            winery.description = req.body.description
+            winery.phone = req.body.phone
+            winery.email = req.body.email
             return winery.save()
         })
             .then(winery => res.json(winery))
