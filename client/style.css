@@ -60,17 +60,24 @@
 	height: 100%;
 }
 .featured-title {
-	margin-left: 20px;
-	margin-bottom: 35px;
 	text-decoration: none;
 	font: 900 16px/18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #444;
-	width: 0%;
-	display:inline-block;
+	overflow: hidden;
+	margin-left: 10px;
+	padding: 5px;
+	text-align: left;
 }
 .featured-text {
-	padding: 10px 2px 2px 2px;
-	width: 0%;
+	text-decoration: none;
+	font: 200 12px/18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: hidden;
+	text-align:left;
+	margin-left: 10px;
+	color: #999;
+}
+a {
+	text-decoration: none;
 }
 
 /*html::-webkit-scrollbar{
