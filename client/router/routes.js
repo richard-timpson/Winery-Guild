@@ -6,11 +6,17 @@ import claimedWineryView from '../components/ClaimedWineryView/claimedWineryComp
 import wineryNavigation from '../components//NavigationComponent/navigationComp.js'
 import footerComponent from '../components/FooterComponent/footerComp.js'
 import adminView from '../components/AdminView/adminComp.js'
+import upgradeView from '../components/UpgradeView/upgradeComp.js'
 const routes = [
   {
     path:'/wineries',
     component: wineryListView,
     name:'all'
+  },
+  {
+    path:'/upgrade',
+    component: upgradeView,
+    name:'upgrade'
   },
   {
     path: '/wineries/:state/',

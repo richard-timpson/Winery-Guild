@@ -31,11 +31,13 @@ const addWinery = winery =>
     .then(res => res.send())
 const updateWinery = winery => {
     const form = new FormData()
-    form.append('bgImg', winery.bgImg)
-    form.append('logo', winery.logo)
-    console.log(form)
-    console.log(winery.bgImg)
-    console.log(winery.logo)
+    for (var key in winery) {
+        if (winery.hasOwnProperty(key)) {
+            if (winery[key]){
+                form.append(`${key}`, winery[key])
+            }
+        }
+    }
     return fetch(`/wineries/${winery._id}`, {
         method: 'PUT',
         body: form

@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 
 //The winery schema
 const winerySchema = mongoose.Schema ({
-    wineryname: String,
+    wineryname: {
+        type:String,
+        required: true,
+    },
     wineryowner: String,
     permitnumber: String,
     street: String,
