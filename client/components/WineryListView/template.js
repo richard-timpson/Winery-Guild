@@ -71,7 +71,7 @@ const template = `
                     <p class="display-1 font-weight-thin" v-if="unclaimed.length > 0">Unclaimed</p>
                 </v-flex>
             </v-layout>
-            <v-layout row justify-center>
+            <v-layout row wrap justify-center>
                 <v-flex xs2 v-for="item in unclaimed" :key="item._id">
                     <router-link :to="{name: 'winery', params: {state: item.state, county: item.county, city: item.city, _id: item._id}}">
                         <v-card :height="80">
