@@ -14,8 +14,10 @@ const template = `
                             <v-card :height="80">
                                 <router-link :to ="{name: 'winery', params: { state: item.state, county: item.county, city: item.city, _id: item._id}}">
                                     <v-container fill-height align-center>
-                                        <v-card-media :src="item.logo"contain></v-card-media>	
-                                        <v-card-text class="px-0">{{ item.wineryname }}</v-card-text>
+                                        <img :src="item.logo" class ='featured-logo'>	
+                                        <v-card-text class="px-0 featured-title">{{ item.wineryname }}</v-card-text>
+                                        <v-divider></v-divider>
+                                        <v-card-text class="featured-text"> {{item.city}} {{item.state}}</v-card-text>
                                     </v-container>
                                 </router-link>
                             </v-card>
