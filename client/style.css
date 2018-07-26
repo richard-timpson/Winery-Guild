@@ -60,17 +60,67 @@
 	height: 100%;
 }
 .featured-title {
-	margin-left: 20px;
-	margin-bottom: 35px;
+	text-decoration: none;
+	font: 900 20px/24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #444;
+	overflow: ellipsis;
+	margin-left: 10px;
+	padding: 5px;
+	text-align: left;
+}
+.featured-text {
+	text-decoration: none;
+	font: 200 18px/20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: ellipsis;
+	text-align:left;
+	margin-left: 10px;
+	color: #999;
+}
+.featured-card {
+	margin: 0rem .5rem 2rem .5rem;
+}
+.premium-logo {
+	height:100%;
+}
+.premium-title {
 	text-decoration: none;
 	font: 900 16px/18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #444;
-	width: 0%;
-	display:inline-block;
+	overflow: ellipsis;
+	margin-left: 10px;
+	padding: 5px;
+	text-align: left;
 }
-.featured-text {
-	padding: 10px 2px 2px 2px;
-	width: 0%;
+.premium-text {
+	text-decoration: none;
+	font: 200 12px/18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: ellipsis;
+	text-align:left;
+	margin-left: 10px;
+	color: #999;
+}
+.claimed-logo {
+	height:100%;
+}
+.claimed-title {
+	text-decoration: none;
+	font: 900 14px/14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #444;
+	overflow: ellipsis;
+	margin-left: 10px;
+	padding: 5px;
+	text-align: left;
+}
+.claimed-text {
+	text-decoration: none;
+	font: 200 8px/10px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: ellipsis;
+	text-align:left;
+	margin-left: 10px;
+	color: #999;
+}
+a {
+	text-decoration: none;
 }
 
 /*html::-webkit-scrollbar{
