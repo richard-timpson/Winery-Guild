@@ -14,7 +14,7 @@ const template = `
                             <v-card :height="80">
                                 <router-link :to ="{name: 'winery', params: { state: item.state, county: item.county, city: item.city, _id: item._id}}">
                                     <v-container fill-height align-center>
-                                        <v-card-media src="item.logo" height="80px" contain></v-card-media>	
+                                        <v-card-media :src="item.logo"contain></v-card-media>	
                                         <v-card-text class="px-0">{{ item.wineryname }}</v-card-text>
                                     </v-container>
                                 </router-link>
