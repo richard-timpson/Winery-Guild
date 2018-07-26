@@ -2,29 +2,37 @@ const template = `
 
 <v-content>
         <v-container fluid grid-list-md text-xs-center id="mainContainer">
-            <v-layout row justify-center>
+            <v-layout row wrap justify-center>
                 <v-flex xs12>
                     <p class="display-1 font-weight-thin" v-if="featured.length > 0">Featured</p>
                 </v-flex>
-            </v-layout>
-            <v-layout row wrap justify-center>
+            
+         
+            
                 <v-flex xs6 lg4 v-for="item in featured" :key="item._id">
-                    <v-card :height ="400">
-                        <iframe :src="item.videourl" class="featured-video"></iframe>
-                            <v-card :height="80">
+                    <v-card>
+                        <iframe style="height: 350px;" :src="item.videourl" class="featured-video"></iframe>
+                    </v-card>
+                    <v-card :height="80">
+                        <v-flex xs2>
+                            <v-avatar size="60" tile="true">
+                                <img :src="item.logo" class ='featured-logo'>
+                            </v-avatar>
+                        </v-flex>
+                        <v-flex>
+                            <router-link :to ="{name: 'winery', params: { state: item.state, county: item.county, city: item.city, _id: item._id}}">	
+                                    <v-card-text class="px-0 featured-title">{{ item.wineryname }}</v-card-text>
+                            </router-link>
+                        </v-flex>
                                 <router-link :to ="{name: 'winery', params: { state: item.state, county: item.county, city: item.city, _id: item._id}}">
-                                    <v-container fill-height align-center>
-                                        <img :src="item.logo" class ='featured-logo'>	
-                                        <v-card-text class="px-0 featured-title">{{ item.wineryname }}</v-card-text>
-                                        <v-divider></v-divider>
                                         <v-card-text class="featured-text"> {{item.city}} {{item.state}}</v-card-text>
-                                    </v-container>
                                 </router-link>
                             </v-card>
-                        
-                    </v-card>
+
                 </v-flex>
+             
             </v-layout>
+            
             <v-layout row justify-center>
                 <v-flex xs12>
                     <p class="display-1 font-weight-thin" v-if="premium.length > 0">Premium</p>
