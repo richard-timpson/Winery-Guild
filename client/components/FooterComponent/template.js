@@ -6,6 +6,7 @@ const template = `
                     <v-card flat tile class="flex">
                         
                         <v-card-text class="text-xs-center">
+
                             <v-btn v-for="icon in icons" :key="icon" class="mx-3 white--text" icon>
                                 <v-icon size="24px">{{ icon }}</v-icon>
                             </v-btn>
