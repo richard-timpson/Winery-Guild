@@ -19,6 +19,7 @@ const template =
 		</video>
 	</v-flex>
 </v-layout>
+
 </v-app>
 `
 

@@ -2,13 +2,15 @@ const template = `
 
 <v-content>
         <v-container fluid grid-list-md text-xs-center id="mainContainer">
-            <v-layout row justify-center>
+            <v-layout row wrap justify-center>
                 <v-flex xs12>
                     <p class="display-1 font-weight-thin" v-if="featured.length > 0">Featured</p>
                 </v-flex>
-            </v-layout>
-            <v-layout row wrap justify-center>
+            
+         
+            
                 <v-flex xs6 lg4 v-for="item in featured" :key="item._id">
+
                     <v-card :height ="400" class="featured-card">
                         <iframe :src="item.videourl" class="featured-video"></iframe>
                             <v-card :height="80">
@@ -22,10 +24,11 @@ const template = `
                                     </v-container>
                                 </router-link>
                             </v-card>
-                        
-                    </v-card>
+
                 </v-flex>
+             
             </v-layout>
+            
             <v-layout row justify-center>
                 <v-flex xs12>
                     <p class="display-1 font-weight-thin" v-if="premium.length > 0">Premium</p>
