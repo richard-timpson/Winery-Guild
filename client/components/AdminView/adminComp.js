@@ -18,6 +18,8 @@ const adminComp = Vue.component('admin-view', {
                 status: '',
                 videourl: '',
                 websiteurl: '',
+                logoImg: null,
+                backgroundImg: null,
                 logo: '',
                 background: '',
                 phone: '',
@@ -66,10 +68,10 @@ const adminComp = Vue.component('admin-view', {
                 .then(winery => this.wineries.unshift(winery)) //adding the winery to the vue instance.
         },
         logoData(e){
-            this.winery.logo = e.target.files[0]
+            this.winery.logoImg = e.target.files[0]
         },
         bgData(e){
-            this.winery.bgImg = e.target.files[0]
+            this.winery.backgroundImg = e.target.files[0]
         },
         getWineryByName (name) {
             api.getWineryByName(name)
@@ -95,8 +97,8 @@ const adminComp = Vue.component('admin-view', {
                 status: this.winery.status,
                 videourl: this.winery.videourl,
                 websiteurl: this.winery.websiteurl,
-                background: this.winery.background,
-                logo: this.winery.logo,
+                backgroundImg: this.winery.backgroundImg,
+                logoImg: this.winery.logoImg,
                 phone: this.winery.phone,
                 email: this.winery.email,
                 description: this.winery.description,

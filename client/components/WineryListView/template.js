@@ -6,9 +6,6 @@ const template = `
                 <v-flex xs12>
                     <p class="display-1 font-weight-thin" v-if="featured.length > 0">Featured</p>
                 </v-flex>
-            
-         
-            
                 <v-flex xs6 lg4 v-for="item in featured" :key="item._id">
 
                     <v-card :height ="400" class="featured-card">
@@ -17,13 +14,14 @@ const template = `
                                 <router-link :to ="{name: 'winery', params: { state: item.state, county: item.county, city: item.city, _id: item._id}}">
                                     <v-container fill-height align-center>
                                         <img :src="item.logo" class ='featured-logo'>	
-                                        <h-group>
+                                        <hgroup>
                                             <h3 class="px-0 featured-title">{{ item.wineryname }}</h3>
                                             <h4 class="featured-text"> {{item.city}} {{item.state}}</h4>
-                                        </h-group>
+                                        </hgroup>
                                     </v-container>
                                 </router-link>
                             </v-card>
+                    </v-card>
 
                 </v-flex>
              
@@ -40,10 +38,10 @@ const template = `
                         <v-card :height="80">
                             <v-container fill-height align-center>
                                 <img :src="item.logo" class ='premium-logo'>	
-                                <h-group>
+                                <hgroup>
                                     <h3 class="px-0 premium-title">{{ item.wineryname }}</h3>
                                     <h4 class="premium-text"> {{item.city}} {{item.state}}</h4>
-                                </h-group>
+                                </hgroup>
                             </v-container>
                         </v-card>
                     </router-link>
@@ -60,10 +58,10 @@ const template = `
                         <v-card :height="80">
                             <v-container fill-height align-center>	
                                 <img :src="item.logo" class ='claimed-logo'>	
-                                <h-group>
+                                <hgroup>
                                     <h3 class="px-0 claimed-title">{{ item.wineryname }}</h3>
                                     <h4 class="claimed-text"> {{item.city}} {{item.state}}</h4>
-                                </h-group>
+                                </hgroup>
                             </v-container>
                         </v-card>
                     </router-link>
@@ -79,7 +77,9 @@ const template = `
                     <router-link :to="{name: 'winery', params: {state: item.state, county: item.county, city: item.city, _id: item._id}}">
                         <v-card :height="80">
                             <v-container fill-height align-center>	
-                                <v-card-text class="px-0">{{ item.wineryname }}</v-card-text>
+                                <hgroup>
+                                    <h3 class="unclaimed-text"> {{item.wineryname}}</h3>
+                                </hgroup>
                             </v-container>
                         </v-card>
                     </router-link>

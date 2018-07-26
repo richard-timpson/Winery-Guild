@@ -40,21 +40,14 @@ module.exports = {
 
             console.log('logging req.body',req.body)
             console.log("logging the winery", winery)
-            for (bodyKey in req.body) {
-                for (wineryKey in winery) {
-                    if (winery.hasOwnProperty(wineryKey)) {
-                        // console.log(`${wineryKey}: ${winery[wineryKey]}`)
-                    }
-                }
-                console.log(`${bodyKey}: ${req.body[bodyKey]}`)
-            }
-            winery.wineryname = req.body.wineryname
-            winery.status = req.body.status
-            winery.videourl = req.body.videourl
-            winery.websiteurl = req.body.websiteurl
-            winery.description = req.body.description
-            winery.phone = req.body.phone
-            winery.email = req.body.email
+
+            // winery.wineryname = req.body.wineryname
+            // winery.status = req.body.status
+            // winery.videourl = req.body.videourl
+            // winery.websiteurl = req.body.websiteurl
+            // winery.description = req.body.description
+            // winery.phone = req.body.phone
+            // winery.email = req.body.email
             return winery.save()
         })
             .then(winery => res.json(winery))

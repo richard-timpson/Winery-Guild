@@ -19,19 +19,22 @@
                 <v-text-field label="Status" name="status" v-model = 'winery.status'></v-text-field>
                 <v-text-field label="Video Url" name="vidUrl" v-model = 'winery.videourl'></v-text-field>
                 <v-text-field label="Website Url" name="webUrl" v-model = 'winery.websiteurl'></v-text-field>
-                <input type="file" @change="logoData" id="uploader1" name="logo" style="display: none" accept="*.jpg">
+
+                <input type="file" @change="logoData" id="uploader1" name="logoImg" style="display: none" accept="*.jpg">
                 <v-btn label="Logo" @click="upload1" id="clicker">Logo</v-btn>
-                <input type="file" @change="bgData" id="uploader2" name="bgImg" style="display: none" accept="*.jpg">
+                <input type="file" @change="bgData" id="uploader2" name="backgroundImg" style="display: none" accept="*.jpg">
                 <v-btn label="Background Image" @click="upload2" id="clicker">Background</v-btn>
+
+
                 <v-text-field label="Phone Number" v-model = 'winery.phone'></v-text-field>
                 <v-text-field label="Email" v-model = 'winery.email'></v-text-field>
                 <v-text-field label="Description" v-model = 'winery.description'></v-text-field>
-                <v-text-field label="Logo link" :value = 'winery.logo'></v-text-field>
-                <v-text-field label ="Background Link" :value = 'winery.background'></v-text-field>
+                <v-text-field label="Logo link" :value = 'winery.logoLink'></v-text-field>
+                <v-text-field label ="Background Link" :value = 'winery.backgroundLink'></v-text-field>
                 <v-btn type ='submit'>Save</v-btn>
                 <v-btn @click="addWinery">Add</V-btn>
             </v-form>
         
-        <img :src= 'winery.logo'>
-        <img :src= 'winery.background'>
+        <img :src= 'winery.logoImg'>
+        <img :src= 'winery.backgroundImg'>
 </v-container>
