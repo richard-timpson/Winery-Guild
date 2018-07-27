@@ -51,7 +51,7 @@ const template = `
         </v-card>
     </v-dialog>
     
-
+    <v-toolbar-title class="display-1 font-weight-thin" v-if="userState">{{ userState }}<span v-if="userCounty"> > {{ userCounty }}</span> <span v-if="userCity"> > {{ userCity }} </span></v-toolbar-title>
 
     <v-spacer></v-spacer>
 
