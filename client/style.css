@@ -9,6 +9,10 @@
 	margin-bottom: 1rem;
 }
 
+.cardList{
+	margin: .5rem;
+}
+
 #phone{
 	height: 528px;
 	width: 588.776px;

@@ -33,9 +33,9 @@ const template = `
                 </v-flex>
             </v-layout>
             <v-layout row justify-center>
-                <v-flex v-for="item in premium" :key="item._id" xs4>
+                <v-flex v-for="item in premium" :key="item._id" lg4>
                     <router-link :to="{name: 'winery', params: {state: item.state, county: item.county, city: item.city, _id: item._id}}">
-                        <v-card :height="80">
+                        <v-card class="cardList" :height="80">
                             <v-container fill-height align-center>
                                 <img :src="item.logo" class ='premium-logo'>	
                                 <hgroup>
@@ -53,7 +53,7 @@ const template = `
                 </v-flex>
             </v-layout>
             <v-layout row justify-center>
-                <v-flex xs2 v-for="item in claimed" :key="item._id">
+                <v-flex class="cardList" xs2 v-for="item in claimed" :key="item._id">
                     <router-link :to="{name: 'winery', params: {state: item.state, county: item.county, city: item.city, _id: item._id}}">
                         <v-card :height="80">
                             <v-container fill-height align-center>	
