@@ -28,6 +28,15 @@ module.exports = {
         })
     },
     
+    searchWineries: (req,res,next) => {
+        console.log(req.query.wineryname)
+        Winery.find({$text:{$search: `"${req.query.wineryname}"`}}).select('wineryname -_id')
+            .then(names => res.status(200).json(names))
+            .catch(e => {
+                req.error = e 
+                next()
+            })
+    },
     editWinery: (req,res,next) => {
         Winery.findById(req.params.id, (err, winery) => {
             if (err) {
