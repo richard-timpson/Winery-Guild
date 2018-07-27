@@ -5,9 +5,10 @@ const template =
         <v-container style="padding: 0;" fluid grid-list-md text-xs-center>
             <v-layout row wrap justify-center>
                 
-                <v-flex xs12 style="padding:0; margin-bottom: 2rem;">
+                <v-flex lg12 style="padding:0; margin-bottom: 2rem;">
                     <v-parallax v-if="winery.background && winery.background != 'undefined'" v-bind:src="winery.background"></v-parallax>
                 </v-flex>
+                
                 <v-flex xs12>
                     
                 </v-flex>
@@ -16,10 +17,10 @@ const template =
                 
                 
                 <v-flex xs12 style="top: -100px; position: relative;">
-                    <iframe v-if="winery.videourl && winery.videourl != 'undefined'" v-bind:src="winery.videourl" style="border: 0; height: 500px; width: 1000px;"></iframe>
+                    <iframe v-if="winery.videourl && winery.videourl != 'undefined'" v-bind:src="winery.videourl" style="border: 0; position:relative; top: -200px; height:700px; width: 1000px;"></iframe>
                 </v-flex>
                 
-                <v-flex xs12>
+                <v-flex xs12 style="position:relative; top: -125px;">
                     <template v-if="winery.phone && winery.phone != 'undefined'">
                         <v-dialog max-width="250px">
                             <v-btn round slot="activator"> Call </v-btn>
