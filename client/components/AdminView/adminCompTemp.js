@@ -27,12 +27,21 @@ const adminComp = Vue.component('admin-view', {
                 description: '',
                 _id: '',
             },
-            nameSearch: 'VINEYARD GRANT JAMES',
+            model: null,
+            winerySearch: [],
+            nameSearch: null,
             idSearch: '5b4d3169493a1b5f8394df0b',
             exists: false,
         }
     },
     created () {},
+    watch: {
+        nameSearch (val) {
+            console.log("searching the wineries")
+            api.searchWineries(val)
+                .then(names => this.winerySearch = names)
+        },
+    },
     methods: {
         upload1(){
             var upld1 = document.querySelector('#uploader1')
@@ -80,6 +89,9 @@ const adminComp = Vue.component('admin-view', {
         getWineryById (id) {
             api.getWineryById(id)
                 .then(winery => this.winery = winery)
+        },
+        searchWineries(search) {
+
         },
         updateWinery () {
 

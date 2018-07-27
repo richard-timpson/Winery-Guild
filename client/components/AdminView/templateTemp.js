@@ -1,7 +1,11 @@
 const template = 
 `
 <v-container>
-    <v-text-field placeholder ="Search for Winery by name" @keyup.enter.prevent ="getWineryByName(nameSearch)" v-model ='nameSearch' type='text'></v-text-field>
+    <v-autocomplete 
+    v-model="model"
+    :items="winerySearch" 
+    :search-input.sync='searchWineries(nameSearch)'
+    ></v-autocomplete>
     <v-btn @click='getWineryByName(nameSearch)'>Search by name</v-btn>
     <v-text-field placeholder ="Search for Winery by name" @keyup.enter.prevent ="getWineryById(idSearch)" v-model ='idSearch' type='text'></v-text-field>
     <v-btn @click='getWineryById(idSearch)'>Search by Id</v-btn>
@@ -21,10 +25,13 @@ const template =
             <v-text-field label="Status" name="status" v-model = 'winery.status'></v-text-field>
             <v-text-field label="Video Url" name="vidUrl" v-model = 'winery.videourl'></v-text-field>
             <v-text-field label="Website Url" name="webUrl" v-model = 'winery.websiteurl'></v-text-field>
+
             <input type="file" @change="logoData" id="uploader1" name="logoImg" style="display: none" accept="*.jpg">
             <v-btn label="Logo" @click="upload1" id="clicker">Logo</v-btn>
             <input type="file" @change="bgData" id="uploader2" name="backgroundImg" style="display: none" accept="*.jpg">
             <v-btn label="Background Image" @click="upload2" id="clicker">Background</v-btn>
+
+
             <v-text-field label="Phone Number" v-model = 'winery.phone'></v-text-field>
             <v-text-field label="Email" v-model = 'winery.email'></v-text-field>
             <v-text-field label="Description" v-model = 'winery.description'></v-text-field>

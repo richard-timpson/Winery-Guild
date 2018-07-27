@@ -14,10 +14,12 @@ const storage = multer.diskStorage({
         cb(null, `./uploads/${req.params.id}`)
     },
     filename: (req,file,cb) => {
-        if (file.fieldname === 'logo') {
+        console.log(file.fieldname)
+        if (file.fieldname === 'logoImg') {
+
             cb(null, 'logo.jpg')
         }
-        else if (file.fieldname ==='bgImg') {
+        else if (file.fieldname ==='backgroundImg') {
             cb(null, 'background.jpg')
         }
     }

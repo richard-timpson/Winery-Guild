@@ -28,6 +28,15 @@ module.exports = {
         })
     },
     
+    searchWineries: (req,res,next) => {
+        console.log(req.query.wineryname)
+        Winery.find({$text:{$search: `"${req.query.wineryname}"`}}).select('wineryname -_id')
+            .then(names => res.status(200).json(names))
+            .catch(e => {
+                req.error = e 
+                next()
+            })
+    },
     editWinery: (req,res,next) => {
         Winery.findById(req.params.id, (err, winery) => {
             if (err) {
@@ -40,14 +49,7 @@ module.exports = {
 
             console.log('logging req.body',req.body)
             console.log("logging the winery", winery)
-            for (bodyKey in req.body) {
-                for (wineryKey in winery) {
-                    if (winery.hasOwnProperty(wineryKey)) {
-                        // console.log(`${wineryKey}: ${winery[wineryKey]}`)
-                    }
-                }
-                console.log(`${bodyKey}: ${req.body[bodyKey]}`)
-            }
+
             winery.wineryname = req.body.wineryname
             winery.status = req.body.status
             winery.videourl = req.body.videourl

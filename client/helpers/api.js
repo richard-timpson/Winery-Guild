@@ -18,6 +18,11 @@ const getWineryByName = (name) => {
     return fetch(url)
         .then( res => res.json())
 }
+const searchWineries = (search) => {
+    const url = `/search?wineryname=${search}`
+    return fetch(url)
+        .then( res => res.json())
+}
 const addWinery = winery =>
     //calling an http request on the home directory to add a winery based on the vue instance data on the form.
     fetch('/wineries', {
@@ -61,4 +66,5 @@ export default {
     updateWinery,
     getWineryById,
     getWineryByName,
+    searchWineries,
 }

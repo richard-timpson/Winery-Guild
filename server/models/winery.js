@@ -27,4 +27,6 @@ const winerySchema = mongoose.Schema ({
     
 })
 
+winerySchema.index({wineryname: "text"})
+
 module.exports = mongoose.model('Winery', winerySchema) //exporting the schema as 'Winery'
