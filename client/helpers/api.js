@@ -2,6 +2,7 @@ import {stringify} from '../node_modules/query-string/index.js'
 
 const getWineries = (filter) => {
     const url = `/wineries?${stringify(filter)}`
+    console.log(url)
     return fetch(url) //calling an http request on the home directory of the page. Should be called whenever the home page is loaded
     .then(res => {
         return res.json()

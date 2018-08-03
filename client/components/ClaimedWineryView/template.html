@@ -1,54 +1,55 @@
 <v-app v-cloak>
     <v-content>
-        <v-container fluid grid-list-md text-xs-center>
+        <v-container style="padding: 0;" fluid grid-list-md text-xs-center>
             <v-layout row wrap justify-center>
-                <v-flex xs12>
-                    <v-toolbar style="background-color: #cc3230">
-                        <v-toolbar-side-icon>
-                            <v-avatar>
-                                <img src="https://d1qmdf3vop2l07.cloudfront.net/white-iris.cloudvent.net/compressed/edce7f6eeee3062a0077fc33d57d65d3.svg" alt="avatar">
-                            </v-avatar>
-                        </v-toolbar-side-icon>
-                        <v-toolbar-title class="display-1 font-weight-thin">Winery Guild</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-menu open-on-hover offset-y>
-                            <v-btn round slot="activator">Filter</v-btn>
-                            <v-toolbar>
-                                <v-toolbar-title v-for="item in items1">
-                                    <v-btn slot="activator">{{ item.title }}</v-btn>
-                                </v-toolbar-title>
-                            </v-toolbar>
-                        </v-menu>
-                        <v-btn round>Claim</v-btn>
-                        <v-btn round>Upgrade</v-btn>
-                    </v-toolbar>
+                
+                <v-flex lg12 style="padding:0; margin-bottom: 2rem;">
+                    <v-parallax v-if="winery.background && winery.background != 'undefined'" v-bind:src="winery.background"></v-parallax>
                 </v-flex>
-                <v-flex xs12 display-1>
-                    Winery Name
-                </v-flex>
+                
                 <v-flex xs12>
-                    <v-parallax src="https://picsum.photos/1920/500/?image=443"></v-parallax>
+                    
+                </v-flex>
+                
+                <v-avatar v-if="winery.logo && winery.logo != 'undefined'" size="150" style=" z-index: 1000; top: -450px;"><img v-bind:src="winery.logo"></v-avatar>
+                
+                
+                <v-flex xs12 style="top: -100px; position: relative;">
+                    <iframe v-if="winery.videourl && winery.videourl != 'undefined'" v-bind:src="winery.videourl" style="border: 0; position:relative; top: -200px; height:700px; width: 1000px;"></iframe>
+                </v-flex>
+                
+                <v-flex xs12 style="position:relative; top: -125px;">
+                    <template v-if="winery.phone && winery.phone != 'undefined'">
+                        <v-dialog max-width="250px">
+                            <v-btn round slot="activator"> Call </v-btn>
+                            <v-card>
+                                <v-card-title><span>Call</span></v-card-title>
+                                <v-divider />
+                                <v-card-text>{{ winery.phone }}</v-card-text>
+                            </v-card>
+                        </v-dialog>
+                    </template>
+                
+                    <template v-if="winery.websiteurl && winery.websiteurl != 'undefined'">
+                        <a v-bind:href="urlink" target="_blank">
+                            <v-btn round> Website </v-btn>
+                        </a>    
+                    </template>
+
+                    <template v-if="winery.email && winery.email != 'undefined'">
+                        <a v-bind:href="elink">
+                            <v-btn round> Email </v-btn>
+                        </a>
+                    </template>
                 </v-flex>
 
-                <v-flex xs4>
-                    <v-parallax src="https://picsum.photos/700/700/?image=230"></v-parallax>
+                <v-flex xs7 style="padding: 0;">
+                    <p v-if="winery.description && winery.description != 'undefined'" style="padding: 1rem;" class="font-weight-thin headline">{{ winery.description }}</p>
+                    <p v-else></p>
                 </v-flex>
-                <v-flex xs4>
-                    <v-parallax src="https://picsum.photos/700/700/?image=606"></v-parallax>
-                </v-flex>
-                <v-flex xs4>
-                    <v-parallax src="https://picsum.photos/700/700/?image=688"></v-parallax>
-                </v-flex>
-
-                <v-flex xs12>
-                    <v-btn round> Call </v-btn>
-                    <v-btn round> Email </v-btn>
-                    <v-btn round> Hours </v-btn>
-                    <v-btn round> Info </v-btn>
-                </v-flex>
-
-                <v-flex xs12>
-                    <!-- NEED TO GET GOOGLE MAPS API -->
+                <v-flex xs12 style="padding: 0; height: 100%;">
+                    <iframe v-bind:src="mapLink" width="100%" height="500px" style="border: 0;">
+                    </iframe>
                 </v-flex>
             </v-layout>
         </v-container>
