@@ -1,0 +1,23 @@
+{
+  "name": "winery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richt3211/Winery-Guild.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richt3211/Winery-Guild/issues"
+  },
+  "homepage": "https://github.com/richt3211/Winery-Guild#readme",
+  "engines": {
+    "node": "10.4.1"
+  }
+}
