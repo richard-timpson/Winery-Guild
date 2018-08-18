@@ -19,7 +19,7 @@ app.use(express.static(`${__dirname}/uploads`))
 
 
 // mongoose.connect('mongodb://richt3211:hetfield3211@ds119171.mlab.com:19171/winery-guild') //connecting to mlab database
-	mongoose.connect('mongodb://richt3211:hetfield3211@ds119171.mlab.com:19171/winery-guild')
-		.then(() => {
-			app.listen(3000)
-		})
+mongoose.connect('mongodb://richt3211:hetfield3211@ds119171.mlab.com:19171/winery-guild')
+	.then(() => {
+		app.listen(3000)
+	})
