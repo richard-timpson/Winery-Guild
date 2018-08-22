@@ -21,5 +21,5 @@ app.use(express.static(`${__dirname}/uploads`))
 // mongoose.connect('mongodb://richt3211:hetfield3211@ds119171.mlab.com:19171/winery-guild') //connecting to mlab database
 mongoose.connect('mongodb://richt3211:hetfield3211@ds119171.mlab.com:19171/winery-guild', ({useNewUrlParser: true}))
 	.then(() => {
-		app.listen(process.env.Port || 3000, {useNewUrlParser: true})
+		app.listen(process.env.Port || 3000)
 	})
